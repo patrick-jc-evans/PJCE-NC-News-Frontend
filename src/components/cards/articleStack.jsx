@@ -6,12 +6,9 @@ import { useEffect, useState } from "react"
 function ArticleStack({ page }) {
     const [articles, setArticles] = useState([])
 
-    console.log(page, "<---")
-    console.log(`${apiAddress}articles?p=${page}&limit=5&sort_by=created_at`)
-
     function getArticles() {
         axios
-            .get(`${apiAddress}/articles?p=${page}&limit=5&sort_by=created_at`)
+            .get(`${apiAddress}/articles?p=${page}&limit=10&sort_by=created_at`)
             .then((response) => {
                 const fullArticleData = response.data.articles
 
