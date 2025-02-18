@@ -5,6 +5,7 @@ import Header from "./components/header"
 import Footer from "./components/footer"
 
 import Articles from "./pages/articles/articles"
+import Article from "./pages/article/article"
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/topics" element={<p>topics</p>} />
                 <Route path="/users" element={<p>users</p>} />
+                <Route path="/article" element={<Article />} />
             </Routes>
             <Footer />
         </div>
