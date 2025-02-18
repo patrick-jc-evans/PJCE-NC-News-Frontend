@@ -32,11 +32,11 @@ function Article() {
     return (
         <>
             <article>
-                <p>{articleData[7]}</p>
-                <h2>{articleData[6]}</h2>
-                <h3>{articleData[2]}</h3>
-                <img src={articleData[1]}></img>
-                <p>{articleData[3]}</p>
+                <p className="article-topic">{"-=" + articleData[7] + "=-"}</p>
+                <h2 className="article-title">{articleData[6]}</h2>
+                <h3 className="article-author">{"by " + articleData[2]}</h3>
+                <img src={articleData[1]} className="article-img"></img>
+                <p className="article-body">{articleData[3]}</p>
             </article>
         </>
     )
