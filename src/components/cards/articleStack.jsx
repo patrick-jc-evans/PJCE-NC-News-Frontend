@@ -15,6 +15,7 @@ function ArticleStack({ page }) {
                 const cardData = []
                 fullArticleData.forEach((article) => {
                     cardData.push([
+                        article.article_id,
                         article.title,
                         article.author,
                         article.topic,
@@ -35,12 +36,13 @@ function ArticleStack({ page }) {
 
     return (
         <>
-            {articles.map((article, index) => {
+            {articles.map((article) => {
                 return (
                     <BasicCard
-                        key={index}
-                        main={article[0]}
-                        secondary={article[1]}
+                        key={article[0]}
+                        article_id={article[0]}
+                        main={article[1]}
+                        secondary={article[2]}
                     />
                 )
             })}

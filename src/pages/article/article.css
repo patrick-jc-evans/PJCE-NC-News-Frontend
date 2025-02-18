@@ -1,0 +1,36 @@
+article {
+    margin-top: 5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6rem;
+}
+
+.article-img {
+    width: 80vw;
+}
+
+.article-topic {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 0rem;
+}
+
+.article-title {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+    margin-bottom: 0rem;
+}
+
+.article-author {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-align: center;
+    font-style: italic;
+    margin: 0.7rem;
+}
+
+.article-body {
+    margin-top: 1rem;
+}
