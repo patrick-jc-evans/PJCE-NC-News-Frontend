@@ -2,12 +2,9 @@ import { useState } from "react"
 import NextPageButton from "../../components/buttons/nextPageButton"
 import ArticleStack from "../../components/cards/articleStack"
 import "./articles.css"
-import axios from "axios"
 
 function Articles() {
     const [page, setPage] = useState(1)
-
-    console.log(page)
 
     return (
         <main>
