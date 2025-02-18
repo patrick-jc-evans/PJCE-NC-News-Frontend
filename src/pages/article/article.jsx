@@ -26,7 +26,6 @@ function Article() {
                 `https://pjce-nc-news.onrender.com/api/articles/${id}/comments`
             )
             .then((response) => {
-                console.log(response.data.comments)
                 let keys = Object.keys(response.data.comments[0])
                 keys.sort()
                 let commentArray = response.data.comments
@@ -34,8 +33,6 @@ function Article() {
                 commentArray = commentArray.map((comment) => {
                     return keys.map((key) => comment[key])
                 })
-
-                console.log(commentArray)
 
                 setCommentData(commentArray)
             })

@@ -2,8 +2,6 @@ import CommentCard from "./commentCard"
 import "../components.css"
 
 function CommentStack({ comments }) {
-    console.log(comments)
-
     return (
         <section className="comments-section">
             <h5 className="comment-title">Comments</h5>
