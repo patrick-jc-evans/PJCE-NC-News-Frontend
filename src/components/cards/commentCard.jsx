@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { apiAddress, user } from "../../../config"
 import axios from "axios"
+import "../components.css"
 
 function CommentCard({ commentID, avatarURL, author, body }) {
     const [commentDeleted, setCommentDeleted] = useState(false)
@@ -23,7 +24,14 @@ function CommentCard({ commentID, avatarURL, author, body }) {
 
     function deleteCommentButton() {
         if (author === user) {
-            return <button onClick={deleteComment}>Delete Comment</button>
+            return (
+                <button
+                    className="delete-comment-button"
+                    onClick={deleteComment}
+                >
+                    Delete Comment
+                </button>
+            )
         }
     }
 
