@@ -12,17 +12,26 @@ function VoteButtons({ id, votes }) {
         axios.patch(url, { inc_votes: voteChange })
     }
 
+    let onScreenVotes
+    if (displayedVotes > 0) {
+        onScreenVotes = "+" + displayedVotes
+    } else {
+        onScreenVotes = displayedVotes
+    }
+
     return (
         <section className="article-buttons-section">
             <button
+                className="vote-button"
                 onClick={() => {
                     patchVotes(1)
                 }}
             >
                 Like
             </button>
-            <p>{displayedVotes}</p>
+            <p className="vote-counts">{onScreenVotes}</p>
             <button
+                className="vote-button"
                 onClick={() => {
                     patchVotes(-1)
                 }}
