@@ -9,6 +9,8 @@
         U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Header & Footer */
+
 header {
     background-color: #35127c;
     color: white;
@@ -37,6 +39,8 @@ footer {
     color: white;
     margin: 0px;
 }
+
+/* Basic Cards */
 
 .basic-card {
     width: 80%;
@@ -76,6 +80,8 @@ footer {
 .bc-tertiary-text {
 }
 
+/* Buttons */
+
 button {
     background-color: #35127c;
     color: white;
@@ -90,6 +96,10 @@ button {
     align-self: left;
 }
 
+.vote-button {
+    width: 22%;
+}
+
 .page-buttons-section {
     text-align: center;
     width: 80%;
@@ -97,6 +107,25 @@ button {
     margin-right: auto;
 }
 
+.article-buttons-section {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+.vote-counts {
+    font-size: 1.5rem;
+
+    width: 10%;
+    margin: 0px;
+    text-align: center;
+}
+
+/* Comments */
 .comment-title {
     text-align: center;
     font-size: 1.2rem;
