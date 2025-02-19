@@ -3,9 +3,6 @@ import { apiAddress } from "../../../config"
 import { useState } from "react"
 
 function PostComment({ articleID, username, setRefreshComments }) {
-    //temporary
-    username = "grumpy19"
-
     const [commentSubmitted, setCommentSubmitted] = useState(false)
     const [commentAccepted, setCommentAccepted] = useState(false)
     const [commentRejected, setCommentRejected] = useState(false)
