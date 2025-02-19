@@ -155,3 +155,11 @@ button {
 .comments-section {
     margin-bottom: 6rem;
 }
+
+/* Loading Text */
+
+.loading-text {
+    margin-top: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}

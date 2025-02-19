@@ -31,7 +31,7 @@ function ArticleStack({ page }) {
     }, [page])
 
     if (!articles) {
-        return <p>Loading...</p>
+        return <p className="loading-text">Loading...</p>
     }
 
     return (

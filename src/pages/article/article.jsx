@@ -45,24 +45,31 @@ function Article() {
     }, [])
 
     if (!articleData || !commentData) {
-        return <p>Loading...</p>
-    }
+        return (
+            <p className="loading-text">
+                <br />
+                <br />
+                Loading...
+            </p>
+        )
+    } else
+        return (
+            <>
+                <article>
+                    <p className="article-topic">
+                        {"-=" + articleData[7] + "=-"}
+                    </p>
+                    <h2 className="article-title">{articleData[6]}</h2>
+                    <h3 className="article-author">{"by " + articleData[2]}</h3>
+                    <img src={articleData[1]} className="article-img"></img>
+                    <p className="article-body">{articleData[3]}</p>
+                </article>
 
-    return (
-        <>
-            <article>
-                <p className="article-topic">{"-=" + articleData[7] + "=-"}</p>
-                <h2 className="article-title">{articleData[6]}</h2>
-                <h3 className="article-author">{"by " + articleData[2]}</h3>
-                <img src={articleData[1]} className="article-img"></img>
-                <p className="article-body">{articleData[3]}</p>
-            </article>
+                <VoteButtons id={articleData[0]} votes={articleData[8]} />
 
-            <VoteButtons id={articleData[0]} votes={articleData[8]} />
-
-            <CommentStack comments={commentData} />
-        </>
-    )
+                <CommentStack comments={commentData} />
+            </>
+        )
 }
 
 export default Article
