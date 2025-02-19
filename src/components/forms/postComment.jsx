@@ -2,7 +2,7 @@ import axios from "axios"
 import { apiAddress } from "../../../config"
 import { useState } from "react"
 
-function PostComment({ articleID, username }) {
+function PostComment({ articleID, username, setRefreshComments }) {
     //temporary
     username = "grumpy19"
 
@@ -15,6 +15,7 @@ function PostComment({ articleID, username }) {
         console.log(url)
         console.log(body)
 
+        setRefreshComments(false)
         setCommentAccepted(false)
         setCommentRejected(false)
 
@@ -26,6 +27,7 @@ function PostComment({ articleID, username }) {
                     if (response.status === 201) {
                         setCommentAccepted(true)
                         setCommentSubmitted(false)
+                        setRefreshComments(true)
                     }
                 })
                 .catch(() => setCommentRejected(true))
@@ -36,7 +38,8 @@ function PostComment({ articleID, username }) {
         if (commentRejected) {
             return (
                 <p className="comment-submission" id="rejected">
-                    Comment failed to post
+                    Comment failed to post or you <br /> attempted to post
+                    duplicate immediately
                 </p>
             )
         }

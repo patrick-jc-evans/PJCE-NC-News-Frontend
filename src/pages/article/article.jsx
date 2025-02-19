@@ -12,6 +12,8 @@ function Article() {
     const searchParams = new URLSearchParams(useLocation().search)
     const article_id = searchParams.get("id")
 
+    const [refreshComments, setRefreshComments] = useState(false)
+
     function getArticleData(id) {
         axios
             .get(`https://pjce-nc-news.onrender.com/api/articles/${id}`)
@@ -43,7 +45,7 @@ function Article() {
     useEffect(() => {
         getArticleData(article_id)
         getArticleComments(article_id)
-    }, [])
+    }, [refreshComments])
 
     if (!articleData || !commentData) {
         return (
@@ -67,8 +69,14 @@ function Article() {
                 </article>
 
                 <VoteButtons id={articleData[0]} votes={articleData[8]} />
-                <PostComment articleID={articleData[0]} />
-                <CommentStack comments={commentData} />
+                <PostComment
+                    articleID={articleData[0]}
+                    setRefreshComments={setRefreshComments}
+                />
+                <CommentStack
+                    comments={commentData}
+                    refreshComments={refreshComments}
+                />
             </>
         )
 }
