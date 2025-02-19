@@ -4,12 +4,20 @@ import axios from "axios"
 
 function VoteButtons({ id, votes }) {
     const [displayedVotes, setDisplayedVotes] = useState(votes)
+    const [likeButtonClicked, setLikeButtonClicked] = useState(false)
+    const [dislikeButtonClicked, setDislikeButtonClicked] = useState(false)
+    const [serverError, setServerError] = useState(false)
 
     function patchVotes(voteChange) {
         const url = `${apiAddress}/articles/${id}`
-        console.log(url)
         setDisplayedVotes(displayedVotes + voteChange)
-        axios.patch(url, { inc_votes: voteChange })
+        axios.patch(url, { inc_votes: voteChange }).catch(() => {
+            setServerError(true)
+        })
+    }
+
+    function displayServerError() {
+        return serverError ? "Server Error - Vote not counted" : ""
     }
 
     let onScreenVotes
@@ -20,25 +28,48 @@ function VoteButtons({ id, votes }) {
     }
 
     return (
-        <section className="article-buttons-section">
-            <button
-                className="vote-button"
-                onClick={() => {
-                    patchVotes(1)
-                }}
-            >
-                Like
-            </button>
-            <p className="vote-counts">{onScreenVotes}</p>
-            <button
-                className="vote-button"
-                onClick={() => {
-                    patchVotes(-1)
-                }}
-            >
-                Dislike
-            </button>
-        </section>
+        <>
+            <section className="article-buttons-section">
+                <button
+                    className={"vote-button-" + likeButtonClicked}
+                    onClick={() => {
+                        if (!likeButtonClicked && !dislikeButtonClicked) {
+                            patchVotes(1)
+                            setLikeButtonClicked(true)
+                        } else if (!likeButtonClicked && dislikeButtonClicked) {
+                            patchVotes(+2)
+                            setLikeButtonClicked(true)
+                            setDislikeButtonClicked(false)
+                        } else {
+                            patchVotes(-1)
+                            setLikeButtonClicked(false)
+                        }
+                    }}
+                >
+                    Like
+                </button>
+                <p className="vote-counts">{onScreenVotes}</p>
+                <button
+                    className={"vote-button-" + dislikeButtonClicked}
+                    onClick={() => {
+                        if (!likeButtonClicked && !dislikeButtonClicked) {
+                            patchVotes(-1)
+                            setDislikeButtonClicked(true)
+                        } else if (likeButtonClicked && !dislikeButtonClicked) {
+                            patchVotes(-2)
+                            setDislikeButtonClicked(true)
+                            setLikeButtonClicked(false)
+                        } else {
+                            patchVotes(+1)
+                            setDislikeButtonClicked(false)
+                        }
+                    }}
+                >
+                    Dislike
+                </button>
+            </section>
+            <p className="error">{displayServerError()}</p>
+        </>
     )
 }
 

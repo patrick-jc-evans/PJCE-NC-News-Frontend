@@ -104,8 +104,13 @@ button {
     align-self: left;
 }
 
-.vote-button {
+.vote-button-false {
     width: 22%;
+}
+
+.vote-button-true {
+    width: 22%;
+    background-color: #d1ccda;
 }
 
 .page-buttons-section {
@@ -162,4 +167,14 @@ button {
     margin-top: 2rem;
     font-size: 2rem;
     text-align: center;
+}
+
+/* Error Text */
+
+.error {
+    background-color: rgb(212, 77, 77);
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
