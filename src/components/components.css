@@ -23,15 +23,6 @@ header {
     top: 0;
 }
 
-footer {
-    background-color: #35127c;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    text-align: center;
-    height: 4rem;
-}
-
 .site-name {
     font-family: "Jersey 10";
     font-weight: 400;
@@ -40,6 +31,23 @@ footer {
     margin: 0px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #35127c;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    height: 4rem;
+}
+
+.footer-icon {
+    height: 3.5rem;
+    margin-top: 0.25rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
 /* Basic Cards */
 
 .basic-card {
