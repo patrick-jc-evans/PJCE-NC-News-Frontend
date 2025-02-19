@@ -4,12 +4,15 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import CommentStack from "../../components/cards/commentStack"
 import VoteButtons from "../../components/buttons/voteButtons"
+import PostComment from "../../components/forms/postComment"
 
 function Article() {
     const [articleData, setArticleData] = useState(null)
     const [commentData, setCommentData] = useState(null)
     const searchParams = new URLSearchParams(useLocation().search)
     const article_id = searchParams.get("id")
+
+    const [refreshComments, setRefreshComments] = useState(false)
 
     function getArticleData(id) {
         axios
@@ -42,7 +45,7 @@ function Article() {
     useEffect(() => {
         getArticleData(article_id)
         getArticleComments(article_id)
-    }, [])
+    }, [refreshComments])
 
     if (!articleData || !commentData) {
         return (
@@ -66,8 +69,14 @@ function Article() {
                 </article>
 
                 <VoteButtons id={articleData[0]} votes={articleData[8]} />
-
-                <CommentStack comments={commentData} />
+                <PostComment
+                    articleID={articleData[0]}
+                    setRefreshComments={setRefreshComments}
+                />
+                <CommentStack
+                    comments={commentData}
+                    refreshComments={refreshComments}
+                />
             </>
         )
 }

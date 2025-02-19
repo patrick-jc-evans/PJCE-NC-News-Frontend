@@ -17,6 +17,14 @@ button {
     font-family: "Play";
 }
 
+input {
+    font-family: "Play";
+}
+
+textarea {
+    font-family: "Play";
+}
+
 a {
     text-decoration: none;
     color: black;
