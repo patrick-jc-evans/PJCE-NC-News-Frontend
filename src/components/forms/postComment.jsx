@@ -60,14 +60,17 @@ function PostComment({ articleID, username }) {
 
     return (
         <>
-            <form>
-                <input
+            <form className="post-comment">
+                <p className="post-comment-label">Post a comment:</p>
+                <textarea
+                    className="comment-input"
                     placeholder="Type comment"
                     type="text"
                     onChange={(e) => {
                         commentBody = e.target.value
                     }}
                 />
+                <br />
                 <input
                     type="submit"
                     onClick={(e) => {

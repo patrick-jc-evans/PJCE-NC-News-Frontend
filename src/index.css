@@ -17,6 +17,10 @@ button {
     font-family: "Play";
 }
 
+textarea {
+    font-family: "Play";
+}
+
 a {
     text-decoration: none;
     color: black;
