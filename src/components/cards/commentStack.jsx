@@ -9,6 +9,7 @@ function CommentStack({ comments }) {
                 return (
                     <CommentCard
                         key={comment[3]}
+                        commentID={comment[3]}
                         author={comment[1]}
                         body={comment[2]}
                     ></CommentCard>
