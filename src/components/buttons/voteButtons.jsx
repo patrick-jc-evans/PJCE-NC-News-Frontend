@@ -10,7 +10,6 @@ function VoteButtons({ id, votes }) {
 
     function patchVotes(voteChange) {
         const url = `${apiAddress}/articles/${id}`
-        console.log(url)
         setDisplayedVotes(displayedVotes + voteChange)
         axios.patch(url, { inc_votes: voteChange }).catch(() => {
             setServerError(true)
