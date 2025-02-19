@@ -76,6 +76,7 @@ function PostComment({ articleID, username, setRefreshComments }) {
                 <br />
                 <input
                     type="submit"
+                    className="submit-comment-button"
                     onClick={(e) => {
                         e.preventDefault()
                         console.log(commentBody)
