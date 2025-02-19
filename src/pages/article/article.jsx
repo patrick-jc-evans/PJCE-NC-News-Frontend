@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import CommentStack from "../../components/cards/commentStack"
 import VoteButtons from "../../components/buttons/voteButtons"
+import PostComment from "../../components/forms/postComment"
 
 function Article() {
     const [articleData, setArticleData] = useState(null)
@@ -66,7 +67,7 @@ function Article() {
                 </article>
 
                 <VoteButtons id={articleData[0]} votes={articleData[8]} />
-
+                <PostComment articleID={articleData[0]} />
                 <CommentStack comments={commentData} />
             </>
         )
