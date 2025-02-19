@@ -4,6 +4,8 @@ import axios from "axios"
 
 function VoteButtons({ id, votes }) {
     const [displayedVotes, setDisplayedVotes] = useState(votes)
+    const [likeButtonClicked, setLikeButtonClicked] = useState(false)
+    const [dislikeButtonClicked, setDislikeButtonClicked] = useState(false)
 
     function patchVotes(voteChange) {
         const url = `${apiAddress}/articles/${id}`
@@ -22,18 +24,38 @@ function VoteButtons({ id, votes }) {
     return (
         <section className="article-buttons-section">
             <button
-                className="vote-button"
+                className={"vote-button-" + likeButtonClicked}
                 onClick={() => {
-                    patchVotes(1)
+                    if (!likeButtonClicked && !dislikeButtonClicked) {
+                        patchVotes(+1)
+                        setLikeButtonClicked(true)
+                    } else if (!likeButtonClicked && dislikeButtonClicked) {
+                        patchVotes(+2)
+                        setLikeButtonClicked(true)
+                        setDislikeButtonClicked(false)
+                    } else {
+                        patchVotes(-1)
+                        setLikeButtonClicked(false)
+                    }
                 }}
             >
                 Like
             </button>
             <p className="vote-counts">{onScreenVotes}</p>
             <button
-                className="vote-button"
+                className={"vote-button-" + dislikeButtonClicked}
                 onClick={() => {
-                    patchVotes(-1)
+                    if (!likeButtonClicked && !dislikeButtonClicked) {
+                        patchVotes(-1)
+                        setDislikeButtonClicked(true)
+                    } else if (likeButtonClicked && !dislikeButtonClicked) {
+                        patchVotes(-2)
+                        setDislikeButtonClicked(true)
+                        setLikeButtonClicked(false)
+                    } else {
+                        patchVotes(+1)
+                        setDislikeButtonClicked(false)
+                    }
                 }}
             >
                 Dislike

@@ -104,8 +104,13 @@ button {
     align-self: left;
 }
 
-.vote-button {
+.vote-button-false {
     width: 22%;
+}
+
+.vote-button-true {
+    width: 22%;
+    background-color: #d1ccda;
 }
 
 .page-buttons-section {
