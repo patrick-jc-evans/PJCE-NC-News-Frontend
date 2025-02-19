@@ -161,6 +161,27 @@ button {
     margin-bottom: 6rem;
 }
 
+/* Posting Comments */
+
+.comment-submission {
+    text-align: center;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#accepted {
+    background-color: #d1ccda;
+}
+
+#rejected {
+    background-color: rgb(212, 77, 77);
+}
+
+#pending {
+    background-color: rgb(226, 226, 140);
+}
+
 /* Loading Text */
 
 .loading-text {

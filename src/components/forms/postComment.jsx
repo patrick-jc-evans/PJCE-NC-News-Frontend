@@ -15,19 +15,46 @@ function PostComment({ articleID, username }) {
         console.log(url)
         console.log(body)
 
-        setCommentSubmitted(true)
+        setCommentAccepted(false)
+        setCommentRejected(false)
 
-        axios
-            .post(url, { username, body })
-            .then((response) => {
-                if (response.status === 201) {
-                    setCommentAccepted(true)
-                }
-            })
-            .catch(() => setCommentRejected(true))
+        if (body && !commentSubmitted) {
+            setCommentSubmitted(true)
+            axios
+                .post(url, { username, body })
+                .then((response) => {
+                    if (response.status === 201) {
+                        setCommentAccepted(true)
+                        setCommentSubmitted(false)
+                    }
+                })
+                .catch(() => setCommentRejected(true))
+        } else setCommentRejected(true)
     }
 
-    function displaySubmissionResult() {}
+    function displaySubmissionResult() {
+        if (commentRejected) {
+            return (
+                <p className="comment-submission" id="rejected">
+                    Comment failed to post
+                </p>
+            )
+        }
+        if (commentAccepted) {
+            return (
+                <p className="comment-submission" id="accepted">
+                    Comment Posted
+                </p>
+            )
+        }
+        if (commentSubmitted) {
+            return (
+                <p className="comment-submission" id="pending">
+                    Posting comment...
+                </p>
+            )
+        }
+    }
 
     let commentBody = ""
 
@@ -50,7 +77,7 @@ function PostComment({ articleID, username }) {
                     }}
                 />
             </form>
-            <p></p>
+            <>{displaySubmissionResult()}</>
         </>
     )
 }
