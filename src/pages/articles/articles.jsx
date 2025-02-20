@@ -8,6 +8,7 @@ import SortByDropdown from "../../components/buttons/sortby"
 function Articles() {
     const [page, setPage] = useState(1)
     const [sortBy, setSortBy] = useState("created_at")
+    const [order, setOrder] = useState("desc")
 
     const searchParams = new URLSearchParams(useLocation().search)
     let topicQuery = searchParams.get("topic")
@@ -17,8 +18,18 @@ function Articles() {
     return (
         <main>
             <h2>{topicQuery[0].toUpperCase() + topicQuery.slice(1)}</h2>
-            <SortByDropdown sortBy={sortBy} setSortBy={setSortBy} />
-            <ArticleStack page={page} topic={topicQuery} sortBy={sortBy} />
+            <SortByDropdown
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                order={order}
+                setOrder={setOrder}
+            />
+            <ArticleStack
+                page={page}
+                topic={topicQuery}
+                sortBy={sortBy}
+                order={order}
+            />
             <NextPageButton page={page} setPage={setPage} />
         </main>
     )
