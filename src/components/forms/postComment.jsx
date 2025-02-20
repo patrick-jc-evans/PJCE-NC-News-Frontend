@@ -9,8 +9,6 @@ function PostComment({ articleID, username, setRefreshComments }) {
 
     function postCommentToApi(body) {
         const url = `${apiAddress}/articles/${articleID}/comments`
-        console.log(url)
-        console.log(body)
 
         setRefreshComments(false)
         setCommentAccepted(false)
@@ -76,7 +74,6 @@ function PostComment({ articleID, username, setRefreshComments }) {
                     className="submit-comment-button"
                     onClick={(e) => {
                         e.preventDefault()
-                        console.log(commentBody)
                         postCommentToApi(commentBody)
                     }}
                 />

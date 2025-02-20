@@ -27,7 +27,6 @@ function NextPageButton({ page, setPage }) {
                 <button
                     type="button"
                     onClick={() => {
-                        console.log(page, "###")
                         setPage(page + 1)
                     }}
                 >
