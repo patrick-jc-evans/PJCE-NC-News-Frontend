@@ -269,6 +269,33 @@ button {
     font-style: italic;
 }
 
+/* Sort By  */
+
+.sortby-button {
+    margin: 0.2rem;
+    background-color: #d1ccda;
+    color: black;
+}
+
+.sortby-button-clicked {
+    margin: 0.2rem;
+    background-color: #35127c;
+    color: white;
+}
+
+.sortby-main-buttons {
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sort-button-area {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 /* Loading Text */
 
 .loading-text {
