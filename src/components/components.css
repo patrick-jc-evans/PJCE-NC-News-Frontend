@@ -269,6 +269,20 @@ button {
     font-style: italic;
 }
 
+/* Sort By  */
+
+.sortby-button {
+    margin: 0.2rem;
+    background-color: #d1ccda;
+    color: black;
+}
+
+.sortby-button-clicked {
+    margin: 0.2rem;
+    background-color: #35127c;
+    color: white;
+}
+
 /* Loading Text */
 
 .loading-text {

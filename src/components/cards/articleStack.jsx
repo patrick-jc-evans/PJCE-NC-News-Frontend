@@ -3,14 +3,14 @@ import axios from "axios"
 import { apiAddress } from "../../../config"
 import { useEffect, useState } from "react"
 
-function ArticleStack({ page, topic }) {
+function ArticleStack({ page, topic, sortBy }) {
     const [articles, setArticles] = useState([])
 
     let fetchURL
     if (topic !== "All Articles")
-        fetchURL = `${apiAddress}/articles?topic=${topic}&p=${page}&limit=10&sort_by=created_at`
+        fetchURL = `${apiAddress}/articles?topic=${topic}&p=${page}&limit=10&sort_by=${sortBy}`
     else
-        fetchURL = `${apiAddress}/articles?p=${page}&limit=10&sort_by=created_at`
+        fetchURL = `${apiAddress}/articles?p=${page}&limit=10&sort_by=${sortBy}`
 
     function getArticles() {
         axios.get(fetchURL).then((response) => {
@@ -32,7 +32,7 @@ function ArticleStack({ page, topic }) {
 
     useEffect(() => {
         getArticles()
-    }, [page])
+    }, [page, sortBy])
 
     if (!articles) {
         return <p className="loading-text">Loading...</p>
