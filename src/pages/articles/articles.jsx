@@ -9,11 +9,19 @@ function Articles() {
     const [page, setPage] = useState(1)
     const [sortBy, setSortBy] = useState("created_at")
     const [order, setOrder] = useState("desc")
+    const [topicExists, setTopicExists] = useState(true)
 
     const searchParams = new URLSearchParams(useLocation().search)
     let topicQuery = searchParams.get("topic")
 
     topicQuery = topicQuery ? topicQuery : "All Articles"
+
+    if (!topicExists)
+        return (
+            <main>
+                <h2 className="error-heading">{`404: Topic "${topicQuery}" not found.`}</h2>
+            </main>
+        )
 
     return (
         <main>
@@ -29,6 +37,7 @@ function Articles() {
                 topic={topicQuery}
                 sortBy={sortBy}
                 order={order}
+                setTopicExists={setTopicExists}
             />
             <NextPageButton page={page} setPage={setPage} />
         </main>
