@@ -10,31 +10,39 @@ import { apiAddress, user } from "../../../config"
 function Article() {
     const [articleData, setArticleData] = useState(null)
     const [commentData, setCommentData] = useState(null)
+    const [articleExists, setArticleExists] = useState(true)
+
     const searchParams = new URLSearchParams(useLocation().search)
     const article_id = searchParams.get("id")
 
     const [refreshComments, setRefreshComments] = useState(false)
 
     function getArticleData(id) {
-        axios.get(`${apiAddress}/articles/${id}`).then((response) => {
-            let keys = Object.keys(response.data.article)
-            keys.sort()
-            setArticleData(keys.map((key) => response.data.article[key]))
-        })
+        axios
+            .get(`${apiAddress}/articles/${id}`)
+            .then((response) => {
+                let keys = Object.keys(response.data.article)
+                keys.sort()
+                setArticleData(keys.map((key) => response.data.article[key]))
+            })
+            .catch(() => setArticleExists(false))
     }
 
     function getArticleComments(id) {
-        axios.get(`${apiAddress}/articles/${id}/comments`).then((response) => {
-            let keys = Object.keys(response.data.comments[0])
-            keys.sort()
-            let commentArray = response.data.comments
+        axios
+            .get(`${apiAddress}/articles/${id}/comments`)
+            .then((response) => {
+                let keys = Object.keys(response.data.comments[0])
+                keys.sort()
+                let commentArray = response.data.comments
 
-            commentArray = commentArray.map((comment) => {
-                return keys.map((key) => comment[key])
+                commentArray = commentArray.map((comment) => {
+                    return keys.map((key) => comment[key])
+                })
+
+                setCommentData(commentArray)
             })
-
-            setCommentData(commentArray)
-        })
+            .catch(() => setArticleExists(false))
     }
 
     useEffect(() => {
@@ -42,7 +50,15 @@ function Article() {
         getArticleComments(article_id)
     }, [refreshComments])
 
-    if (!articleData || !commentData) {
+    if (!articleExists) {
+        return (
+            <p className="loading-text">
+                <br />
+                <br />
+                404: Article not found.
+            </p>
+        )
+    } else if (!articleData || !commentData) {
         return (
             <p className="loading-text">
                 <br />

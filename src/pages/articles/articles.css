@@ -13,3 +13,8 @@ h2 {
 main {
     margin-bottom: 5rem;
 }
+
+.error-heading {
+    font-size: 2rem;
+    border-style: none;
+}
