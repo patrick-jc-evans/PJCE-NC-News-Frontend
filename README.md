@@ -1,8 +1,22 @@
-# React + Vite
+# The Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a demonstration of front end skills, for a basic news news site. This site is hosted at: https://anew-pjce.netlify.app/articles.
 
-Currently, two official plugins are available:
+It connects to an API hosted at https://pjce-nc-news.onrender.com/api, the project for which can also be found on github at: https://github.com/patrick-jc-evans/PJCE-NC-News.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Run Locally
+
+To run locally:
+
+-   Git Clone https://github.com/patrick-jc-evans/PJCE-NC-News-Frontend
+-   run npm install
+-   run npm run dev
+
+# Config
+
+In the config you can select:
+
+-   The Api Address
+-   The current logged in user
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
