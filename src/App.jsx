@@ -8,13 +8,14 @@ import Articles from "./pages/articles/articles"
 import Article from "./pages/article/article"
 import Topics from "./pages/topics/topics"
 import ErrorPage from "./pages/errorPage/errorPage"
+import Home from "./pages/home/home"
 
 function App() {
     return (
         <div>
             <Header />
             <Routes>
-                <Route path="/" element={<p>home</p>} />
+                <Route path="/" element={<Home />} />
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/topics" element={<Topics />} />
                 <Route path="/users" element={<p>users</p>} />

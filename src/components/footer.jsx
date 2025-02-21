@@ -1,4 +1,5 @@
 import { Link } from "react-router"
+import { user } from "../../config"
 
 function Footer() {
     return (
@@ -17,7 +18,7 @@ function Footer() {
                     src="../../public/icons/topics.svg"
                 />
             </Link>
-            <Link to="/users">
+            <Link to={`/users?name=${user}`}>
                 <img
                     className="footer-icon"
                     alt="article icon"
