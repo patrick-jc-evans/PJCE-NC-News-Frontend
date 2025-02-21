@@ -8,28 +8,28 @@ function Footer() {
                 <img
                     className="footer-icon"
                     alt="article icon"
-                    src="../../public/icons/articles.svg"
+                    src="../../src/icons/articles.svg"
                 />
             </Link>
             <Link to="/topics">
                 <img
                     className="footer-icon"
-                    alt="article icon"
-                    src="../../public/icons/topics.svg"
+                    alt="topics icon"
+                    src="../../src/icons/topics.svg"
                 />
             </Link>
             <Link to={`/users?name=${user}`}>
                 <img
                     className="footer-icon"
-                    alt="article icon"
-                    src="../../public/icons/users.svg"
+                    alt="user icon"
+                    src="../../src/icons/users.svg"
                 />
             </Link>
             <Link to="/">
                 <img
                     className="footer-icon"
-                    alt="article icon"
-                    src="../../public/icons/home.svg"
+                    alt="home icon"
+                    src="../../src/icons/home.svg"
                 />
             </Link>
         </footer>
