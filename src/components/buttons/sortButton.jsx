@@ -5,7 +5,6 @@ function SortButton({ label, sortBy, setSortBy }) {
     if (label === sortBy) stylingAddon = "-clicked"
 
     function handleClick() {
-        console.log(label)
         setSortBy(label)
     }
 
