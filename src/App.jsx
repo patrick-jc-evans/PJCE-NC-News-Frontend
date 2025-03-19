@@ -9,6 +9,7 @@ import Article from "./pages/article/article"
 import Topics from "./pages/topics/topics"
 import ErrorPage from "./pages/errorPage/errorPage"
 import Home from "./pages/home/home"
+import Users from "./pages/users/users"
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/topics" element={<Topics />} />
-                <Route path="/users" element={<p>users</p>} />
+                <Route path="/users" element={<Users />} />
                 <Route path="/article" element={<Article />} />
                 <Route path="*" element={<ErrorPage />} />
             </Routes>
