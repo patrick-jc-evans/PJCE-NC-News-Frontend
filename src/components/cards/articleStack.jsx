@@ -1,4 +1,4 @@
-import BasicCard from "./basicCard"
+import ArticleCard from "./articleCard"
 import axios from "axios"
 import { apiAddress } from "../../../config"
 import { useEffect, useState } from "react"
@@ -23,8 +23,17 @@ function ArticleStack({ page, topic, sortBy, order, setTopicExists }) {
                     cardData.push([
                         article.article_id,
                         article.title,
-                        article.author,
-                        article.topic,
+                        article.author + " - " + article.topic,
+
+                        `${article.comment_count} ${
+                            article.comment_count === 1
+                                ? " comment"
+                                : " comments"
+                        } - ${article.votes} ${
+                            article.votes === 1 ? "like" : " likes"
+                        }`,
+
+                        article.article_img_url,
                     ])
                 })
 
@@ -47,11 +56,13 @@ function ArticleStack({ page, topic, sortBy, order, setTopicExists }) {
         <>
             {articles.map((article) => {
                 return (
-                    <BasicCard
+                    <ArticleCard
                         key={article[0]}
                         article_id={article[0]}
                         main={article[1]}
                         secondary={article[2]}
+                        tertiary={article[3]}
+                        image={article[4]}
                     />
                 )
             })}
