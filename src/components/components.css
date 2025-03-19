@@ -52,6 +52,7 @@ footer {
 
 .basic-card {
     display: grid;
+    grid-template-columns: 5rem auto;
     width: 80%;
     border: #35127c;
     border-width: 4px;
@@ -91,6 +92,7 @@ footer {
     margin-right: 0.2rem;
     grid-column: 2;
     grid-row: 1;
+    height: 2.25rem;
 }
 
 .bc-secondary-text {
