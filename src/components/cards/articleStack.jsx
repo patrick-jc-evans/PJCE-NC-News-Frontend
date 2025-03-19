@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 function ArticleStack({ page, topic, sortBy, order, setTopicExists }) {
     const [articles, setArticles] = useState([])
+    const [loading, setLoading] = useState(true)
 
     let fetchURL
     if (topic !== "All Articles")
@@ -38,9 +39,11 @@ function ArticleStack({ page, topic, sortBy, order, setTopicExists }) {
                 })
 
                 setArticles(cardData)
+                setLoading(false)
             })
             .catch(() => {
                 setTopicExists(false)
+                setLoading(false)
             })
     }
 
@@ -48,8 +51,13 @@ function ArticleStack({ page, topic, sortBy, order, setTopicExists }) {
         getArticles()
     }, [page, sortBy, order])
 
-    if (!articles) {
-        return <p className="loading-text">Loading...</p>
+    if (loading) {
+        return (
+            <p className="loading-text">
+                Page Loading. This may take a while due to the api server
+                spinning up.
+            </p>
+        )
     }
 
     return (

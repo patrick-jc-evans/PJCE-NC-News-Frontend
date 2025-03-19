@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 
 function TopicStack() {
     const [topics, setTopics] = useState([])
+    const [loading, setLoading] = useState(true)
 
     function getTopics() {
         axios.get(`${apiAddress}/topics`).then((response) => {
@@ -16,6 +17,7 @@ function TopicStack() {
             })
 
             setTopics(cardData)
+            setLoading(false)
         })
     }
 
@@ -23,8 +25,13 @@ function TopicStack() {
         getTopics()
     }, [])
 
-    if (!topics) {
-        return <p className="loading-text">Loading...</p>
+    if (loading) {
+        return (
+            <p className="loading-text">
+                Page Loading. This may take a while due to the api server
+                spinning up.
+            </p>
+        )
     }
 
     return (
