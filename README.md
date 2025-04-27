@@ -1,6 +1,6 @@
 # The Project
 
-This project is a demonstration of front end skills, for a basic news news site. This site is hosted at: https://anew-pjce.netlify.app/articles.
+This project is a demonstration of front end skills, for a basic news news site. This site is hosted at: https://anew-pjce.netlify.app/.
 
 "Anew" is an imaginary news website, where users can look through and read articles, as well as being able to post comments, and like/dislike articles. Built in react, the site uses no component frameworks like bootstrap/MUI as I wanted to improve my own personal html & css skills.
 
